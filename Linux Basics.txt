@@ -1,0 +1,153 @@
+Basics:
+------
+chgrp - change group
+chown - change user 
+sh - create new shell
+ls -l | more - list things few at a time
+cat file.txt -> print content of file.txt
+
+Redirection:
+-----------
+">" -> Overwrite output to file
+">>" -> append output to file
+"2>" -> OIverwrite error to file
+"2>>" -> append error to file
+Stream | File Descriptor
+stdin  |        0
+stdout |        1
+stderr |        2
+
+Process :
+-------
+-> Login > linux kernel > shell
+echo $$ -> prints current shell PID
+ps -> process status (TTY - current console, TIME - start time)
+ps -f -> more process attributes (PPID - Parent Process ID, C - Processor utilization , STIME - Process start time)
+ps -e or ps -A -> display both user and system process
+ps -e | more -> list process few at a time
+
+Linux Environment:
+-----------------
+-> Variables
+	- environmental
+		> Available in users's total environmental
+		> Avaialable in sub-shels
+	- local
+		> Limited availability
+		> Not available in sub-shells
+set | more -> Displays all the current shell variables
+env | more -> Displays only environmental variables
+PATH=$PATH:(some path) -> Adds a given path to the evnronment path variable so that shell can search through it
+echo $LOGNAME -> login user name
+echo $PS2 -> Secondary command prompt symbol (default is > )
+PS1="@" -> Change primary prompt symbol to @
+history -> display all used commands
+history 10 -> display 10 used commands
+!(command number from history) -> run that command 
+!! -> run last used command
+cd - -> change to previuos directory
+alias cdMusic="cd /home/thribhuvan/music" -> create an alias
+unalias cdMusic -> unset alias
+
+Basics of System administration:
+-------------------------------
+sudo adduser username -> add a new user
+su - username -> Switch user
+logout -> log out from current user
+sudo usermod -e YYYY-MM-DD username -> set a expiry date to a user account
+id -> uid and gid details
+id -u -> user id only
+id -n -u -> user name
+id -g 0-> group id
+id -G -> display all user group id's
+sudo userdel -r username -> delete user along with his home directory
+df -> displays a report on free space available
+du -> displays a report on space occupied by a file
+df -h -> human readable format
+du -s *.txt -> report on txt files in directory 
+du -cv *.txt ->
+
+Simple Filters:
+--------------
+head -n5 file -> display first 5 lines
+tail -n5 file -> display last 5 lines
+auth.log -> Contains who logged in and logged out
+tail -f /var/log/auth.log -> Follows last line in real time (-f -> follow)
+sort filename -> sort based on first characters in a file
+sort -n file -> sort based on all characters in a word
+sort -rn file -> sort in reverse order
+sort -un -> only unqie displayed
+sort file -t "(delimiter)" -k2 -> sort based on second column (k specifies column number)
+cut file -d "(delimiter)" -f2 -> cut second column
+paste file1 file2 -> merge files
+paste -s file -> print serially (like wordwrapping print)
+
+Log Files List(/var/log/):
+-------------------------
+auth.log -> authentication logins
+message -> General and system related stuff
+kern.log -> kernel logs
+cron.log -> Crond logs (cron jbs)
+maillog -> mail server logs
+httpd/ -> Appache access and error logs
+mysqlid.log -> MyDQL DB server log file
+
+grep:
+----
+grep "(search word/phrase)" filename.txt -> Search for lines with the given word, case - sensitive
+grep -i "(search word/phrase)" filename.txt -> Search for lines with the given word, case - insensitive
+grep -iv "(search word/phrase)" filename.txt -> Search and return lines which dont include the search word
+grep -in "(search word/phrase)" filename.txt -> Search and return lines with their line numbers which include the search word
+grep -i "(search word/phrase)" file1.txt file2.txt file3.txt -> search and return lines from multiple files
+grep -c "(search word/phrase)" fileame.txt -> return the number of lines the word was matched
+grep -e "(search word 1)" -e "(search word 2)" filename.txt -> Search multiple patterns
+
+Regular Expression:
+------------------
+Character Set - []:
+	- For small range, Ex: [abc] -> One of the characters in the set is matched, here either a or b or c is matched
+	  > EX: grep "G[ao][og]gle" file.txt
+	- For large range, Ex: [0-9] -> one among 0 to 9 is matched
+Asterisk - *:
+	- Ex: "ab*" -> matches ab, abb, abbb etc
+Dots - .:
+	- Ex: "M... " -> Four letter word starting with M is matched, Blank space is important
+Carrot sign - ^:
+	- Ex: "^A" -> Find lines which start with "A"
+Dollar sign - $:
+	- Ex: "1... $" - Find lines which end with a four letter number starting with 1
+
+sed Command:
+-----------
+-> sed - Stream Editor
+-> To perform file editing or patternmmatchng in a particular location
+-> Editing functions: Insertion, Substitution, Deletion of matched text
+Line Addressing: (Action by giving line numbers)
+	- sed '2p' filename.txt -> here '2' specifies line number, 'p' specifies print, prints all lines in file but prints line-2 twice
+	- sed -n '2p' file.txt -> Prints only second line (n means silent mode)
+	- sed -n '$p' file.txt -> Prints last line
+	- sed -n '3,6p' file.txt -> Prints from 3rd line to 6th line
+	- sed -n '3,6!p' file.txt -> Prints all lines except 3 to 6 (! denotes compliment action)
+Context Addressing: (Action by matching a particular pattern)
+	- sed -n '/[cC]omputers/p' file.text -> prints all the lines containing the the word computers or Computers
+	- sed -n '/[cC]omputers/w file2.txt' file.txt -> Output is written to file2.txt
+	- sed -n -e '/ece/w file2.txt' -e '/ise/w file3.txt' file.txt -> Search multiple patterns and write them into specified files
+Substitution:
+	- sed 's/[dDwayne]/King/' file.txt -> Replace all the first occurances of Dwayne or dwayne with King
+	- sed 's/[dDwayne]/King/g' file.txt -> Replace all occurances
+	- sed -e 's/ece/ele/g' file.txt -> replace ece with ele
+	- sed '/Anuj/s/ece/cse/g' file.txt -> Replace ece with cse for lines containing Anuj
+sed '/ece/d' file.txt -> Save lines without ece
+sed '1i Info' file.txt -> Add the line "Info" at the 1st position of the file (i for insert)
+sed '1i info\nclass' file.txt -> Add two lines "info" and "class" (\n - newline)
+
+
+
+
+
+
+
+
+
+
+
