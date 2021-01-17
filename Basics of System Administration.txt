@@ -1,0 +1,17 @@
+Basics of System administration:
+-------------------------------
+sudo adduser username -> add a new user
+su - username -> Switch user
+logout -> log out from current user
+sudo usermod -e YYYY-MM-DD username -> set a expiry date to a user account
+id -> uid and gid details
+id -u -> user id only
+id -n -u -> user name
+id -g 0-> group id
+id -G -> display all user group id's
+sudo userdel -r username -> delete user along with his home directory
+df -> displays a report on free space available
+du -> displays a report on space occupied by a file
+df -h -> human readable format
+du -s *.txt -> report on txt files in directory 
+du -cv *.txt ->

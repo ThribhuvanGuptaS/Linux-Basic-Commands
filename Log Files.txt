@@ -1,0 +1,9 @@
+Log Files List(/var/log/):
+-------------------------
+auth.log -> authentication logins
+message -> General and system related stuff
+kern.log -> kernel logs
+cron.log -> Crond logs (cron jbs)
+maillog -> mail server logs
+httpd/ -> Appache access and error logs
+mysqlid.log -> MyDQL DB server log file

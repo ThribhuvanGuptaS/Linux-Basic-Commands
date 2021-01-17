@@ -1,0 +1,14 @@
+Simple Filters:
+--------------
+head -n5 file -> display first 5 lines
+tail -n5 file -> display last 5 lines
+auth.log -> Contains who logged in and logged out
+tail -f /var/log/auth.log -> Follows last line in real time (-f -> follow)
+sort filename -> sort based on first characters in a file
+sort -n file -> sort based on all characters in a word
+sort -rn file -> sort in reverse order
+sort -un -> only unqie displayed
+sort file -t "(delimiter)" -k2 -> sort based on second column (k specifies column number)
+cut file -d "(delimiter)" -f2 -> cut second column
+paste file1 file2 -> merge files
+paste -s file -> print serially (like wordwrapping print)

@@ -1,0 +1,8 @@
+Process :
+-------
+-> Login > linux kernel > shell
+echo $$ -> prints current shell PID
+ps -> process status (TTY - current console, TIME - start time)
+ps -f -> more process attributes (PPID - Parent Process ID, C - Processor utilization , STIME - Process start time)
+ps -e or ps -A -> display both user and system process
+ps -e | more -> list process few at a time

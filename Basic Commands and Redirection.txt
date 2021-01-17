@@ -1,0 +1,18 @@
+Basics:
+------
+chgrp - change group
+chown - change user 
+sh - create new shell
+ls -l | more - list things few at a time
+cat file.txt -> print content of file.txt
+
+Redirection:
+-----------
+">" -> Overwrite output to file
+">>" -> append output to file
+"2>" -> OIverwrite error to file
+"2>>" -> append error to file
+Stream | File Descriptor
+stdin  |        0
+stdout |        1
+stderr |        2

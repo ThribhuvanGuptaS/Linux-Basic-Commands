@@ -1,0 +1,22 @@
+Linux Environment:
+-----------------
+-> Variables
+	- environmental
+		> Available in users's total environmental
+		> Avaialable in sub-shels
+	- local
+		> Limited availability
+		> Not available in sub-shells
+set | more -> Displays all the current shell variables
+env | more -> Displays only environmental variables
+PATH=$PATH:(some path) -> Adds a given path to the evnronment path variable so that shell can search through it
+echo $LOGNAME -> login user name
+echo $PS2 -> Secondary command prompt symbol (default is > )
+PS1="@" -> Change primary prompt symbol to @
+history -> display all used commands
+history 10 -> display 10 used commands
+!(command number from history) -> run that command 
+!! -> run last used command
+cd - -> change to previuos directory
+alias cdMusic="cd /home/thribhuvan/music" -> create an alias
+unalias cdMusic -> unset alias

@@ -1,0 +1,24 @@
+grep:
+----
+grep "(search word/phrase)" filename.txt -> Search for lines with the given word, case - sensitive
+grep -i "(search word/phrase)" filename.txt -> Search for lines with the given word, case - insensitive
+grep -iv "(search word/phrase)" filename.txt -> Search and return lines which dont include the search word
+grep -in "(search word/phrase)" filename.txt -> Search and return lines with their line numbers which include the search word
+grep -i "(search word/phrase)" file1.txt file2.txt file3.txt -> search and return lines from multiple files
+grep -c "(search word/phrase)" fileame.txt -> return the number of lines the word was matched
+grep -e "(search word 1)" -e "(search word 2)" filename.txt -> Search multiple patterns
+
+Regular Expression:
+------------------
+Character Set - []:
+	- For small range, Ex: [abc] -> One of the characters in the set is matched, here either a or b or c is matched
+	  > EX: grep "G[ao][og]gle" file.txt
+	- For large range, Ex: [0-9] -> one among 0 to 9 is matched
+Asterisk - *:
+	- Ex: "ab*" -> matches ab, abb, abbb etc
+Dots - .:
+	- Ex: "M... " -> Four letter word starting with M is matched, Blank space is important
+Carrot sign - ^:
+	- Ex: "^A" -> Find lines which start with "A"
+Dollar sign - $:
+	- Ex: "1... $" - Find lines which end with a four letter number starting with 1

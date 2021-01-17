@@ -1,0 +1,23 @@
+sed Command:
+-----------
+-> sed - Stream Editor
+-> To perform file editing or patternmmatchng in a particular location
+-> Editing functions: Insertion, Substitution, Deletion of matched text
+Line Addressing: (Action by giving line numbers)
+	- sed '2p' filename.txt -> here '2' specifies line number, 'p' specifies print, prints all lines in file but prints line-2 twice
+	- sed -n '2p' file.txt -> Prints only second line (n means silent mode)
+	- sed -n '$p' file.txt -> Prints last line
+	- sed -n '3,6p' file.txt -> Prints from 3rd line to 6th line
+	- sed -n '3,6!p' file.txt -> Prints all lines except 3 to 6 (! denotes compliment action)
+Context Addressing: (Action by matching a particular pattern)
+	- sed -n '/[cC]omputers/p' file.text -> prints all the lines containing the the word computers or Computers
+	- sed -n '/[cC]omputers/w file2.txt' file.txt -> Output is written to file2.txt
+	- sed -n -e '/ece/w file2.txt' -e '/ise/w file3.txt' file.txt -> Search multiple patterns and write them into specified files
+Substitution:
+	- sed 's/[dDwayne]/King/' file.txt -> Replace all the first occurances of Dwayne or dwayne with King
+	- sed 's/[dDwayne]/King/g' file.txt -> Replace all occurances
+	- sed -e 's/ece/ele/g' file.txt -> replace ece with ele
+	- sed '/Anuj/s/ece/cse/g' file.txt -> Replace ece with cse for lines containing Anuj
+sed '/ece/d' file.txt -> Save lines without ece
+sed '1i Info' file.txt -> Add the line "Info" at the 1st position of the file (i for insert)
+sed '1i info\nclass' file.txt -> Add two lines "info" and "class" (\n - newline)
