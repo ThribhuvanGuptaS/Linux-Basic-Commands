@@ -5,6 +5,24 @@ chown - change user
 sh - create new shell
 ls -l | more - list things few at a time
 cat file.txt -> print content of file.txt
+ls -> for listing file names in a folder/dir
+ls -a -> for listing all files along with hidden files(. in the beginning of the name)
+ls -l -> for listing all files names along with extra info
+ls -al -> for listing all files along with hidden one with extra info
+cd path -> to change the directory
+pwd -> display present/current working directory
+mkdir foldername -> to create/make directory
+rmdir foldername -> to remove a directory
+rm file/foldername -> to remove a file or a directory
+rm -rf foldername-> to remove/delete everything in a folder along with the folder
+touch filename.extension -> to create a file
+mv source_file_or_folder destination_file_or_folder -> to move a file or directory to a destination
+cp source_file_or_folder destination_file_or_folder -> to copy a file or directory to a destination
+cat filename.extension -> tp display the contents of a file
+nano filename.extension -> open file to edit using nano (ctrl+o -> enter -> ctrl+x -- to save the edits)
+vim filename.extension -> open file to edit using vim
+sudo apt-get install nano -> to install nano in ubuntu
+
 
 Redirection:
 -----------
